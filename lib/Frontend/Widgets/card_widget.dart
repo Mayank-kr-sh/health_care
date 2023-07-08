@@ -23,11 +23,11 @@ class CardWidget extends StatelessWidget {
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         child: SizedBox(
-          width: cardWidth * 1.5,
+          width: cardWidth * 1.65,
           child: Card(
-            elevation: 4.0,
+            elevation: 2.0,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(5.0),
             ),
             child: Padding(
               padding: const EdgeInsets.all(10.0),
@@ -36,15 +36,16 @@ class CardWidget extends StatelessWidget {
                 children: [
                   Icon(
                     iconData,
-                    size: cardWidth * 0.15, // Adjust the icon size as needed
+                    size: cardWidth * 0.13,
+                    color: Colors.blue, // Adjust the icon size as needed
                   ),
-                  const SizedBox(width: 8.0),
+                  const SizedBox(width: 12.0),
                   Text(
                     title,
                     style: TextStyle(
-                      fontSize: cardWidth * 0.12,
+                      fontSize: cardWidth * 0.11,
                     ), // Adjust the text size as needed
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.left,
                   ),
                 ],
               ),

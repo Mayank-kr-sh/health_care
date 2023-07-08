@@ -11,6 +11,7 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _HomeScreenState createState() => _HomeScreenState();
 }
 
@@ -73,11 +74,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
+    //final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Colors.white,
         leading: Builder(
           builder: (BuildContext context) {
@@ -91,11 +93,11 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         title: Container(
           decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 143, 133, 133),
+            color: const Color.fromARGB(255, 215, 213, 213),
             borderRadius: BorderRadius.circular(10.0),
           ),
           child: TextField(
-            style: const TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.white),
             textInputAction: TextInputAction.search,
             onSubmitted: (value) {
               // Perform search action here
@@ -104,14 +106,14 @@ class _HomeScreenState extends State<HomeScreen> {
               contentPadding: EdgeInsets.symmetric(vertical: 12.0),
               hintText: 'Search',
               border: InputBorder.none,
-              hintStyle: TextStyle(color: Colors.grey),
-              prefixIcon: Icon(Icons.search, color: Colors.grey),
+              hintStyle: TextStyle(color: Colors.black),
+              prefixIcon: Icon(Icons.search, color: Colors.black),
             ),
           ),
         ),
-        actions: [],
+        actions: const [],
       ),
-      drawer: DrawerSection(),
+      drawer: const DrawerSection(),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -177,97 +179,97 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-            const SizedBox(height: 12.0),
+            const SizedBox(height: 10.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 CardWidget(
-                  title: 'Card 1',
-                  iconData: Icons.account_circle,
+                  title: 'Symptom Checker',
+                  iconData: Icons.radar,
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ProfileScreen(),
+                        builder: (context) => const ProfileScreen(),
                       ),
                     );
                   },
                 ),
                 CardWidget(
-                  title: 'Card 2',
-                  iconData: Icons.settings,
+                  title: 'Med Reminders',
+                  iconData: Icons.timer,
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ProfileScreen(),
+                        builder: (context) => const ProfileScreen(),
                       ),
                     );
                   },
                 ),
               ],
             ),
-            const SizedBox(height: 8.0),
+            const SizedBox(height: 4.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 CardWidget(
-                  title: 'Card 4',
-                  iconData: Icons.favorite,
+                  title: 'Presciption Discounts',
+                  iconData: Icons.r_mobiledata_sharp,
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ProfileScreen(),
+                        builder: (context) => const ProfileScreen(),
                       ),
                     );
                   },
                 ),
                 CardWidget(
-                  title: 'Card 5',
-                  iconData: Icons.shopping_cart,
+                  title: 'Drug Interactions',
+                  iconData: Icons.air_rounded,
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ProfileScreen(),
+                        builder: (context) => const ProfileScreen(),
                       ),
                     );
                   },
                 ),
               ],
             ),
-            const SizedBox(height: 8.0),
+            const SizedBox(height: 4.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 CardWidget(
-                  title: 'Card 4',
-                  iconData: Icons.favorite,
+                  title: 'Allergy Tracker',
+                  iconData: Icons.radio_button_checked_sharp,
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ProfileScreen(),
+                        builder: (context) => const ProfileScreen(),
                       ),
                     );
                   },
                 ),
                 CardWidget(
-                  title: 'Card 5',
-                  iconData: Icons.shopping_cart,
+                  title: 'Track Symptoms',
+                  iconData: Icons.auto_graph,
                   onTap: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ProfileScreen(),
+                        builder: (context) => const ProfileScreen(),
                       ),
                     );
                   },
                 ),
               ],
             ),
-            const SizedBox(height: 8.0),
+            const SizedBox(height: 10.0),
             const Padding(
               padding: EdgeInsets.only(top: 20, left: 16),
               child: Text(
