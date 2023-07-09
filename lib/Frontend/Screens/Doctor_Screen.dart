@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:health_care/Frontend/Screens/Home_Screen.dart';
 import 'package:health_care/Frontend/Widgets/location.dart';
 import 'package:health_care/Frontend/Widgets/search.dart';
+import 'package:health_care/Frontend/buttons/Transparent_button.dart';
 
 class DoctorScreen extends StatelessWidget {
   const DoctorScreen({Key? key}) : super(key: key);
@@ -13,12 +14,6 @@ class DoctorScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back, color: Colors.black),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
         title: Center(
           child: Image(
             image: const AssetImage('assets/images/logo.png'),
@@ -110,20 +105,12 @@ class DoctorScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 20.0),
-          ElevatedButton(
+          TransparentButton(
+            text: "Search for Doctors",
             onPressed: () {
               // Perform search action
             },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: const Color.fromARGB(255, 7, 7, 201),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0),
-              ),
-              minimumSize: Size(screenSize.width * 0.6,
-                  50.0), // Set the desired width and height
-            ),
-            child: const Text('Search for Doctors'),
-          ),
+          )
         ],
       ),
     );
