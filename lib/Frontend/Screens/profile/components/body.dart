@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/Frontend/Screens/Profile%20tools/Create_profile.dart';
+import 'package:health_care/Frontend/Screens/Profile%20tools/Med_reminders.dart';
+import 'package:health_care/Frontend/buttons/Transparent_button.dart';
+import 'package:health_care/Frontend/constants/constants.dart';
 
 import 'profile_menu.dart';
 import 'profile_pic.dart';
@@ -12,19 +16,64 @@ class Body extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
         children: [
-          const ProfilePic(),
-          const SizedBox(height: 20),
-          const Text("tools"),
-          ProfileMenu(
-            text: "My Account",
-            icon: "assets/icons/UserIcon.svg",
-            press: () => {},
+          // const ProfilePic(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Column(
+                    children: [
+                      Text("Create Your Profile!",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold)),
+                      SizedBox(height: 8),
+                      Text(" Save your important inoformation",
+                          style: TextStyle(
+                              fontSize: 12, fontWeight: FontWeight.w300)),
+                      Text("so its always in your fingertips",
+                          style: TextStyle(
+                              fontSize: 12, fontWeight: FontWeight.w300)),
+                    ],
+                  ),
+                ),
+                TransparentButton(
+                    text: "Create Profile",
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CreateProfile()),
+                      );
+                    }),
+              ],
+            ),
           ),
-          ProfileMenu(
-            text: "Med Reminders",
-            icon: "assets/icons/reminder.svg",
-            press: () {},
+
+          const SizedBox(height: 10),
+          const Divider(
+            color: kPrimaryColor,
+            height: 0,
+            thickness: 1,
+            indent: 10,
+            endIndent: 10,
           ),
+          Container(
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.all(10),
+              child: const Text("My Tools",
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700))),
+          ProfileMenu(
+              text: "Med Reminders",
+              icon: "assets/icons/reminder.svg",
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MedReminders()),
+                );
+              }),
           ProfileMenu(
             text: "Medical Team",
             icon: "assets/icons/med_team.svg",
@@ -40,6 +89,11 @@ class Body extends StatelessWidget {
             icon: "assets/icons/procedures.svg",
             press: () {},
           ),
+          Container(
+              alignment: Alignment.topLeft,
+              padding: const EdgeInsets.all(10),
+              child: const Text("Saved",
+                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700))),
           ProfileMenu(
             text: "Conditions",
             icon: "assets/icons/conditions.svg",
