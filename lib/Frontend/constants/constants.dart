@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../Model/News.dart';
 
-const kPrimaryColor = Color.fromARGB(255, 97, 208, 255);
+const kPrimaryColor = Color.fromARGB(255, 38, 208, 72);
 const kPrimaryLightColor = Color(0xFFFFECDF);
 const kPrimaryGradientColor = LinearGradient(
   begin: Alignment.topLeft,

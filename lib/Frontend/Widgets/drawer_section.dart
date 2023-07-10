@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:health_care/Frontend/constants/constants.dart';
 
 class DrawerSection extends StatelessWidget {
   const DrawerSection({Key? key}) : super(key: key);
@@ -54,6 +55,7 @@ class DrawerSection extends StatelessWidget {
               child: SvgPicture.asset(
                 'assets/icons/drugs.svg',
                 width: iconSize,
+                color: kPrimaryColor,
               ),
             ),
             title: Text(

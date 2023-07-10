@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/Frontend/Screens/Auth/Create_profile.dart';
-import 'package:health_care/Frontend/Screens/Profile%20tools/Med_reminders.dart';
+import 'package:health_care/Frontend/Screens/Profile%20tools/Med%20%20Reminders/Med_reminders.dart';
+import 'package:health_care/Frontend/Screens/Profile%20tools/Medical_team.dart';
+import 'package:health_care/Frontend/Screens/Profile%20tools/Screening_procedures.dart';
+import 'package:health_care/Frontend/Screens/Profile%20tools/Tracked_symptoms.dart';
 import 'package:health_care/Frontend/buttons/Transparent_button.dart';
 import 'package:health_care/Frontend/constants/constants.dart';
 
@@ -74,20 +77,33 @@ class Body extends StatelessWidget {
                 );
               }),
           ProfileMenu(
-            text: "Medical Team",
-            icon: "assets/icons/med_team.svg",
-            press: () {},
-          ),
+              text: "Medical Team",
+              icon: "assets/icons/med_team.svg",
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MedicalTeam()),
+                );
+              }),
           ProfileMenu(
-            text: "Tracked Symptoms",
-            icon: "assets/icons/symptoms.svg",
-            press: () {},
-          ),
+              text: "Tracked Symptoms",
+              icon: "assets/icons/symptoms.svg",
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const TrackedSymptoms()),
+                );
+              }),
           ProfileMenu(
-            text: "Screenings & Procedures",
-            icon: "assets/icons/procedures.svg",
-            press: () {},
-          ),
+              text: "Screenings & Procedures",
+              icon: "assets/icons/procedures.svg",
+              press: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Procedures()),
+                );
+              }),
           Container(
               alignment: Alignment.topLeft,
               padding: const EdgeInsets.all(10),

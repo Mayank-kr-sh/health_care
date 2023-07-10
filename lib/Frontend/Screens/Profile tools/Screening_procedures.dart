@@ -4,14 +4,14 @@ import 'package:flutter_svg/svg.dart';
 import '../../buttons/Transparent_button.dart';
 import '../../constants/constants.dart';
 
-class MedReminders extends StatefulWidget {
-  const MedReminders({super.key});
+class Procedures extends StatefulWidget {
+  const Procedures({super.key});
 
   @override
-  State<MedReminders> createState() => _MedRemindersState();
+  State<Procedures> createState() => _ProceduresState();
 }
 
-class _MedRemindersState extends State<MedReminders> {
+class _ProceduresState extends State<Procedures> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,9 +37,9 @@ class _MedRemindersState extends State<MedReminders> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SvgPicture.asset(
-                "assets/icons/reminder.svg",
+                "assets/icons/procedures.svg",
                 color: kPrimaryColor,
-                width: 22,
+                width: 42,
               ),
               const SizedBox(
                 height: 10,
@@ -47,11 +47,18 @@ class _MedRemindersState extends State<MedReminders> {
               const Text("Nothing here yet",
                   style: TextStyle(fontWeight: FontWeight.w800)),
               const SizedBox(
+                height: 5,
+              ),
+              const Text("Register so we can show you",
+                  style: TextStyle(fontSize: 12)),
+              const Text("personalized screenings & procedures.",
+                  style: TextStyle(fontSize: 12)),
+              const SizedBox(
                 height: 10,
               ),
               Center(
                 child: TransparentButton(
-                  text: 'Create Reminder',
+                  text: 'Register',
                   onPressed: () {
                     // Action to perform when the button is pressed
                     print('Button pressed!');
