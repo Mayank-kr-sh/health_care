@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/Frontend/Screens/Auth/Create_profile.dart';
+import 'package:health_care/Frontend/Screens/Auth/Forget.dart';
 import 'package:health_care/Frontend/constants/constants.dart';
 
 class SignIn extends StatefulWidget {
@@ -41,15 +42,15 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
+        backgroundColor: Colors.white,
+        elevation: 2,
         title: const Text(
           'Sign In',
           style: TextStyle(color: Colors.black87),
         ),
         leading: IconButton(
           icon: const Icon(
-            Icons.arrow_back_ios,
+            Icons.arrow_back_ios_new,
             color: Colors.black,
           ),
           onPressed: () {
@@ -103,7 +104,11 @@ class _SignInState extends State<SignIn> {
             const SizedBox(height: 10),
             TextButton(
               onPressed: () {
-                // Forgot password button action
+                // Forgot password button action ForgotPasswordPage
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ForgotPasswordPage()));
               },
               child: const Text(
                 'Forgot Password?',
