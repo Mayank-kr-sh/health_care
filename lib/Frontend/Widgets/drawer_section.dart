@@ -11,7 +11,7 @@ class DrawerSection extends StatelessWidget {
 
     final iconSize = screenSize.width * 0.06; // Adjust the percentage as needed
     final titleFontSize =
-        14.5 * textScaleFactor; // Adjust the base font size as needed
+        15.0 * textScaleFactor; // Adjust the base font size as needed
 
     return Drawer(
       child: ListView(
