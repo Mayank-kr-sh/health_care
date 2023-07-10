@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class LocationDialog extends StatelessWidget {
   const LocationDialog({Key? key}) : super(key: key);
@@ -13,7 +14,7 @@ class LocationDialog extends StatelessWidget {
         TextButton(
           onPressed: () {
             Navigator.pop(context);
-            // Navigate to app settings
+            openAppSettings(); // Open app settings
           },
           child: const Text('Settings'),
         ),

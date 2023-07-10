@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:health_care/Frontend/Screens/Profile%20tools/Create_profile.dart';
+import 'package:health_care/Frontend/Screens/Auth/Create_profile.dart';
 import 'package:health_care/Frontend/Screens/Profile%20tools/Med_reminders.dart';
 import 'package:health_care/Frontend/buttons/Transparent_button.dart';
 import 'package:health_care/Frontend/constants/constants.dart';
 
 import 'profile_menu.dart';
-import 'profile_pic.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});

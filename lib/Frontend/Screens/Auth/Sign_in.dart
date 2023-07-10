@@ -1,15 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/Frontend/Screens/Auth/Create_profile.dart';
 import 'package:health_care/Frontend/constants/constants.dart';
 
-class SignIn extends StatelessWidget {
-  const SignIn({super.key});
+class SignIn extends StatefulWidget {
+  const SignIn({Key? key}) : super(key: key);
+
+  @override
+  _SignInState createState() => _SignInState();
+}
+
+class _SignInState extends State<SignIn> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  String? _emailErrorText;
+  String? _passwordErrorText;
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  void _validateFields() {
+    setState(() {
+      _emailErrorText =
+          _emailController.text.isEmpty ? 'Please enter your email' : null;
+      _passwordErrorText = _passwordController.text.isEmpty
+          ? 'Please enter your password'
+          : null;
+    });
+
+    if (_emailErrorText == null && _passwordErrorText == null) {
+      // Perform sign-in button action
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        elevation: 0, // Removes the shadow
+        elevation: 0,
         title: const Text(
           'Sign In',
           style: TextStyle(color: Colors.black87),
@@ -27,42 +60,45 @@ class SignIn extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const SizedBox(height: 24),
-            const Text(
-              'Welcome',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-              ),
-              textAlign: TextAlign.center,
+            Image.asset(
+              'assets/images/logo.png',
+              height: 100,
+              width: double.infinity,
             ),
-            const SizedBox(height: 48),
+            const SizedBox(height: 18),
             TextFormField(
-              decoration: const InputDecoration(
+              controller: _emailController,
+              decoration: InputDecoration(
                 labelText: 'Email',
-                prefixIcon: Icon(Icons.email),
+                prefixIcon: const Icon(Icons.email),
+                errorText: _emailErrorText,
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 8),
             TextFormField(
-              decoration: const InputDecoration(
+              controller: _passwordController,
+              decoration: InputDecoration(
                 labelText: 'Password',
-                prefixIcon: Icon(Icons.lock),
+                prefixIcon: const Icon(Icons.lock),
+                errorText: _passwordErrorText,
               ),
               obscureText: true,
             ),
-            const SizedBox(height: 48),
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                primary: kPrimaryColor, // Change the button color here
+            const SizedBox(height: 40),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.all(16),
+                  backgroundColor: kPrimaryColor,
+                ),
+                onPressed: _validateFields,
+                child: const Text('Sign In'),
               ),
-              onPressed: () {
-                // Sign-in button action
-              },
-              child: const Text('Sign In'),
             ),
             const SizedBox(height: 10),
             TextButton(
@@ -74,16 +110,16 @@ class SignIn extends StatelessWidget {
                 style: TextStyle(color: kPrimaryColor),
               ),
             ),
-            // const SizedBox(
-            //   height: 10,
-            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const Text("Haven't an account? "),
                 TextButton(
                   onPressed: () {
-                    // Sign Up button action
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CreateProfile()));
                   },
                   child: const Text(
                     'Sign Up',

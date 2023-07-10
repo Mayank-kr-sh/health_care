@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:health_care/Frontend/Screens/Home_Screen.dart';
 import 'package:health_care/Frontend/Widgets/location.dart';
 import 'package:health_care/Frontend/Widgets/search.dart';
 import 'package:health_care/Frontend/buttons/Transparent_button.dart';
@@ -85,20 +84,25 @@ class DoctorScreen extends StatelessWidget {
               padding:
                   EdgeInsets.symmetric(horizontal: screenSize.width * 0.05),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Icon(Icons.location_on, size: 16),
-                  const SizedBox(
-                    width: 13,
-                  ),
-                  const Text(
-                    'Zip Code or City, State',
-                    style: TextStyle(fontSize: 13),
+                  const Row(
+                    children: [
+                      Icon(Icons.location_on, size: 16),
+                      SizedBox(
+                        width: 13,
+                      ),
+                      Text(
+                        'Zip Code or City, State',
+                        style: TextStyle(fontSize: 13),
+                      ),
+                    ],
                   ),
                   SizedBox(width: screenSize.width * 0.28),
-                  SizedBox(
-                    width: screenSize.width * 0.04,
-                    height: screenSize.width * 0.04,
-                    child: const CircularProgressIndicator(),
+                  const SizedBox(
+                    width: 16,
+                    height: 16,
+                    child: CircularProgressIndicator(),
                   ),
                 ],
               ),
@@ -108,7 +112,12 @@ class DoctorScreen extends StatelessWidget {
           TransparentButton(
             text: "Search for Doctors",
             onPressed: () {
-              // Perform search action
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return const LocationDialog();
+                },
+              );
             },
           )
         ],
