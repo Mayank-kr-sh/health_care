@@ -32,7 +32,7 @@ class ProfileMenu extends StatelessWidget {
             SvgPicture.asset(
               icon,
               color: kPrimaryColor,
-              width: 22,
+              width: 28,
             ),
             const SizedBox(width: 20),
             Expanded(

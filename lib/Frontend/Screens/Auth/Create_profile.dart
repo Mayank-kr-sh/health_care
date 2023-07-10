@@ -249,18 +249,6 @@ class _CreateProfileState extends State<CreateProfile> {
               Navigator.pop(context);
             },
           ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const SignIn()));
-              },
-              child: const Text(
-                'Sign In',
-                style: TextStyle(color: kPrimaryColor),
-              ),
-            ),
-          ],
         ),
         body: Form(
           key: _formKey,
