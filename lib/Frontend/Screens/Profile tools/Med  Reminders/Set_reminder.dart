@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/Frontend/Screens/Profile%20tools/Med%20%20Reminders/search_med.dart';
 import 'package:health_care/Frontend/buttons/Dot_button.dart';
 
 class SetReminders extends StatefulWidget {
@@ -42,7 +43,14 @@ class _SetRemindersState extends State<SetReminders> {
               const SizedBox(
                 height: 20,
               ),
-              Dotbutton(text: "Add Reminder", onPressed: () => {}),
+              Dotbutton(
+                  text: "Add Reminder",
+                  onPressed: () => {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SearchMed()))
+                      }),
             ]));
   }
 }
