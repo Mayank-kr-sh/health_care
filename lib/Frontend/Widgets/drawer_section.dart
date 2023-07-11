@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:health_care/Frontend/constants/constants.dart';
 
+import '../Screens/newsletter.dart';
+import '../Screens/notification.dart';
+
 class DrawerSection extends StatelessWidget {
   const DrawerSection({Key? key}) : super(key: key);
 
@@ -90,7 +93,13 @@ class DrawerSection extends StatelessWidget {
               style: TextStyle(fontSize: titleFontSize),
             ),
             onTap: () {
-              // Handle notifications tap
+              // Handle notifications tap NotificationSettingsPage
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NotificationSettingsPage(),
+                ),
+              );
             },
           ),
           ListTile(
@@ -103,7 +112,13 @@ class DrawerSection extends StatelessWidget {
               style: TextStyle(fontSize: titleFontSize),
             ),
             onTap: () {
-              // Handle newsletter tap
+              // Handle newsletter tap NewsLetter
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NewsLetter(),
+                ),
+              );
             },
           ),
           const Divider(),

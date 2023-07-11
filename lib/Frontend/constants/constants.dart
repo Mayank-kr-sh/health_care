@@ -77,3 +77,19 @@ List<News> newsList = [
   ),
   // Add more news items as needed
 ];
+
+List<Map<String, dynamic>> notificationData = [
+  {
+    'icon': Icons.article,
+    'title': 'News',
+    'subtitle': 'Stay current on the top stories you care about most.',
+    'enabled': false,
+  },
+  {
+    'icon': Icons.radio_button_checked,
+    'title': 'Allergy Tracker',
+    'subtitle': 'Alert me when allergy level are high in my area.',
+    'enabled': true,
+  },
+  // Add more notification card data as needed
+];

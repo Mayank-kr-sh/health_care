@@ -23,7 +23,7 @@ class Dotbutton extends StatelessWidget {
           child: DottedBorder(
               borderType: BorderType.RRect,
               strokeWidth: 2,
-              dashPattern: [2, 6], // [dot radius, spacing]
+              dashPattern: const [2, 6], // [dot radius, spacing]
               color: kPrimaryColor,
               radius: const Radius.circular(8),
               child: Center(
