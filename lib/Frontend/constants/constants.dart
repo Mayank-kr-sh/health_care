@@ -93,3 +93,26 @@ List<Map<String, dynamic>> notificationData = [
   },
   // Add more notification card data as needed
 ];
+
+InputDecoration customInputDecoration = InputDecoration(
+    labelText: 'Enter your text',
+    labelStyle: TextStyle(
+      color: Colors.grey[700],
+      fontSize: 16.0,
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderSide: BorderSide(
+        color: Colors.grey.shade400,
+      ),
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(
+        color: kPrimaryColor,
+      ),
+    ),
+    filled: true,
+    fillColor: Colors.grey[200],
+    contentPadding: const EdgeInsets.symmetric(
+      vertical: 16.0,
+      horizontal: 16.0,
+    ));

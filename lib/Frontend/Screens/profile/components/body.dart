@@ -7,6 +7,7 @@ import 'package:health_care/Frontend/Screens/Profile%20tools/Tracked_symptoms.da
 import 'package:health_care/Frontend/buttons/Transparent_button.dart';
 import 'package:health_care/Frontend/constants/constants.dart';
 
+import '../../Profile tools/Med  Reminders/Set_reminder.dart';
 import 'profile_menu.dart';
 
 class Body extends StatelessWidget {
@@ -73,7 +74,7 @@ class Body extends StatelessWidget {
               press: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const MedReminders()),
+                  MaterialPageRoute(builder: (context) => const SetReminders()),
                 );
               }),
           ProfileMenu(
