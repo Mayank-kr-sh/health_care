@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:health_care/Frontend/constants/constants.dart';
 
+import '../Screens/Pills Id/pills_id.dart';
 import '../Screens/newsletter.dart';
 import '../Screens/notification.dart';
 
@@ -66,7 +67,12 @@ class DrawerSection extends StatelessWidget {
               style: TextStyle(fontSize: titleFontSize),
             ),
             onTap: () {
-              // Handle pills identifier tap
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const PillIdentifierPage(),
+                ),
+              );
             },
           ),
           ListTile(

@@ -49,7 +49,7 @@ class _SetRemindersState extends State<SetReminders> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => SearchMed()))
+                                builder: (context) => const SearchMed()))
                       }),
             ]));
   }

@@ -130,10 +130,13 @@ class _SearchMedState extends State<SearchMed> {
                     onTap: () {
                       print('Tapped item: ${filteredData[index]}');
                       Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) =>
-                                  AddReminder(text: filteredData[index])));
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AddReminder(
+                            text: filteredData[index],
+                          ),
+                        ),
+                      );
                     });
               },
             ),
