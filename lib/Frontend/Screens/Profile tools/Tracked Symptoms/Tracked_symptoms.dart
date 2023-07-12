@@ -1,11 +1,12 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:health_care/Frontend/Screens/Profile%20tools/Tracked%20Symptoms/symptoms_page.dart';
 
-import '../../buttons/Dot_button.dart';
-import '../../buttons/Transparent_button.dart';
-import '../../constants/constants.dart';
-import 'Med  Reminders/search_med.dart';
+import '../../../buttons/Dot_button.dart';
+import '../../../buttons/Transparent_button.dart';
+import '../../../constants/constants.dart';
+import '../Med  Reminders/search_med.dart';
 
 class TrackedSymptoms extends StatefulWidget {
   const TrackedSymptoms({super.key});
@@ -68,7 +69,7 @@ class _TrackedSymptomsState extends State<TrackedSymptoms> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const SearchMed()))
+                                  builder: (context) => const SearchSymptoms()))
                         }),
               ),
               // Center(
