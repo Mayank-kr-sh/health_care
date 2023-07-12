@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:health_care/Frontend/Screens/Pills%20Id/color.dart';
 import 'package:health_care/Frontend/Screens/Pills%20Id/shapes.dart';
 import 'package:health_care/Frontend/constants/constants.dart';
@@ -13,6 +14,8 @@ class PillIdentifierPage extends StatefulWidget {
 class _PillIdentifierPageState extends State<PillIdentifierPage> {
   int _selectedScreenIndex = 0;
   late PageController _pageController;
+  String _selectedShape = '';
+  Color? _selectedColor;
 
   @override
   void initState() {
@@ -29,6 +32,18 @@ class _PillIdentifierPageState extends State<PillIdentifierPage> {
   void _selectScreen(int index) {
     setState(() {
       _selectedScreenIndex = index;
+    });
+  }
+
+  void _handleShapeSelected(String selectedShape) {
+    setState(() {
+      _selectedShape = selectedShape;
+    });
+  }
+
+  void _handlColorSelected(Color selectedColor) {
+    setState(() {
+      _selectedColor = selectedColor;
     });
   }
 
@@ -148,6 +163,16 @@ class _PillIdentifierPageState extends State<PillIdentifierPage> {
                             ? kPrimaryColor
                             : Colors.transparent,
                       ),
+                      trailing: _selectedShape.isNotEmpty
+                          ? SizedBox(
+                              width: 30,
+                              height: 30,
+                              child: SvgPicture.asset(
+                                _selectedShape,
+                                color: kPrimaryColor,
+                              ),
+                            )
+                          : null,
                     ),
                   ),
                 ),
@@ -175,6 +200,16 @@ class _PillIdentifierPageState extends State<PillIdentifierPage> {
                             ? kPrimaryColor
                             : Colors.transparent,
                       ),
+                      trailing: _selectedColor != null
+                          ? Container(
+                              width: 30,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: _selectedColor!,
+                              ),
+                            )
+                          : null,
                     ),
                   ),
                 ),
@@ -186,8 +221,12 @@ class _PillIdentifierPageState extends State<PillIdentifierPage> {
               controller: _pageController,
               onPageChanged: _selectScreen,
               children: [
-                const ShapeScreen(),
-                ColorScreen(),
+                ShapeScreen(
+                  onShapeSelected: _handleShapeSelected,
+                ),
+                ColorScreen(
+                  onColorSelected: _handlColorSelected,
+                ),
               ],
             ),
           ),

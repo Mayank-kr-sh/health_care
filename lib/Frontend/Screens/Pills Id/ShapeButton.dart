@@ -23,8 +23,8 @@ class ShapeButton extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
         child: Container(
-          height: 110,
-          width: 110,
+          height: 100,
+          width: 100,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
             border: Border.all(
