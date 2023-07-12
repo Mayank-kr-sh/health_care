@@ -17,24 +17,31 @@ class Dotbutton extends StatelessWidget {
     return GestureDetector(
       onTap: onPressed,
       child: SizedBox(
-          height: 50,
+          height: 90,
           width: 320,
           // color: Colors.amber,
           child: DottedBorder(
               borderType: BorderType.RRect,
               strokeWidth: 2,
-              dashPattern: const [2, 6], // [dot radius, spacing]
+              dashPattern: const [8, 10], // [dot radius, spacing]
               color: kPrimaryColor,
               radius: const Radius.circular(8),
               child: Center(
-                child: Row(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Icon(Icons.add_circle, color: kPrimaryColor),
+                    const Icon(
+                      Icons.add_circle,
+                      color: kPrimaryColor,
+                      size: 50,
+                    ),
                     const SizedBox(
-                      width: 10,
+                      height: 10,
                     ),
                     Text(text),
+                    const SizedBox(
+                      height: 5,
+                    ),
                   ],
                 ),
               ))),

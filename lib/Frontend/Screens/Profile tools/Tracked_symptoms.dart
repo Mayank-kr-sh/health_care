@@ -1,8 +1,11 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../buttons/Dot_button.dart';
 import '../../buttons/Transparent_button.dart';
 import '../../constants/constants.dart';
+import 'Med  Reminders/search_med.dart';
 
 class TrackedSymptoms extends StatefulWidget {
   const TrackedSymptoms({super.key});
@@ -19,7 +22,7 @@ class _TrackedSymptomsState extends State<TrackedSymptoms> {
           backgroundColor: Colors.transparent,
           elevation: 0, // Removes the shadow
           title: const Text(
-            'Medication Reminders',
+            'Track Symptoms',
             style: TextStyle(color: Colors.black87),
           ),
           leading: IconButton(
@@ -42,29 +45,41 @@ class _TrackedSymptomsState extends State<TrackedSymptoms> {
                 width: 22,
               ),
               const SizedBox(
-                height: 10,
+                height: 30,
               ),
-              const Text("Nothing here yet",
-                  style: TextStyle(fontWeight: FontWeight.w800)),
+              const Text("Track Symptoms",
+                  style: TextStyle(fontWeight: FontWeight.w800, fontSize: 22)),
               const SizedBox(
                 height: 5,
               ),
               const Text("Start tracking your symptoms and conditions",
-                  style: TextStyle(fontSize: 10)),
-              const Text("information so it's alaways on hand.",
-                  style: TextStyle(fontSize: 10)),
+                  style: TextStyle(fontSize: 14)),
+              const Text("Click the add button below and then search for a ",
+                  style: TextStyle(fontSize: 14)),
+              const Text("symptoms or condition by name",
+                  style: TextStyle(fontSize: 14)),
               const SizedBox(
-                height: 10,
+                height: 30,
               ),
               Center(
-                child: TransparentButton(
-                  text: 'Tracked Symptoms',
-                  onPressed: () {
-                    // Action to perform when the button is pressed
-                    print('Button pressed!');
-                  },
-                ),
+                child: Dotbutton(
+                    text: "Add Symptoms or condition",
+                    onPressed: () => {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const SearchMed()))
+                        }),
               ),
+              // Center(
+              //   child: TransparentButton(
+              //     text: 'Tracked Symptoms',
+              //     onPressed: () {
+              //       // Action to perform when the button is pressed
+              //       print('Button pressed!');
+              //     },
+              //   ),
+              // ),
             ]));
   }
 }
