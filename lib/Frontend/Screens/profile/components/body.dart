@@ -3,7 +3,7 @@ import 'package:health_care/Frontend/Screens/Auth/Create_profile.dart';
 import 'package:health_care/Frontend/Screens/Profile%20tools/Med%20%20Reminders/Med_reminders.dart';
 import 'package:health_care/Frontend/Screens/Profile%20tools/Medical_team.dart';
 import 'package:health_care/Frontend/Screens/Profile%20tools/Screening_procedures.dart';
-import 'package:health_care/Frontend/Screens/Profile%20tools/Tracked_symptoms.dart';
+import 'package:health_care/Frontend/Screens/Profile%20tools/Tracked%20Symptoms/Tracked_symptoms.dart';
 import 'package:health_care/Frontend/buttons/Transparent_button.dart';
 import 'package:health_care/Frontend/constants/constants.dart';
 
