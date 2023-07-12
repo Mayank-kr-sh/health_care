@@ -113,7 +113,15 @@ class _PillIdentifierPageState extends State<PillIdentifierPage> {
             ),
           ),
           Container(
-            color: Colors.grey[200],
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              boxShadow: const [
+                BoxShadow(
+                    color: Colors.black,
+                    blurRadius: 2.0,
+                    blurStyle: BlurStyle.outer),
+              ],
+            ),
             child: Row(
               children: [
                 Expanded(
@@ -148,7 +156,7 @@ class _PillIdentifierPageState extends State<PillIdentifierPage> {
                     onTap: () {
                       _selectScreen(1);
                       _pageController.animateToPage(1,
-                          duration: Duration(milliseconds: 300),
+                          duration: const Duration(milliseconds: 300),
                           curve: Curves.ease);
                     },
                     child: ListTile(
@@ -178,7 +186,7 @@ class _PillIdentifierPageState extends State<PillIdentifierPage> {
               controller: _pageController,
               onPageChanged: _selectScreen,
               children: [
-                ShapeScreen(),
+                const ShapeScreen(),
                 ColorScreen(),
               ],
             ),

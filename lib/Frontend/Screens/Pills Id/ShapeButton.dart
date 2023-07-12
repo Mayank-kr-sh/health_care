@@ -20,34 +20,39 @@ class ShapeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onPressed,
-      child: Container(
-        padding: const EdgeInsets.all(8),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(
-            color: isSelected ? kPrimaryColor : Colors.white,
-            width: isSelected ? 2.0 : 0.0,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+        child: Container(
+          height: 110,
+          width: 110,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(
+              color: isSelected ? kPrimaryColor : Colors.transparent,
+              width: isSelected ? 2.0 : 0.0,
+            ),
           ),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SvgPicture.asset(
-              svgPath,
-              width: 40,
-              height: 35,
-              color: isSelected ? kPrimaryColor : Colors.grey,
-            ),
-            const SizedBox(height: 8),
-            Text(
-              text,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: Colors.grey,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SvgPicture.asset(
+                svgPath,
+                width: 55,
+                height: 55,
+                // ignore: deprecated_member_use
+                color: isSelected ? kPrimaryColor : Colors.grey[300],
               ),
-            ),
-          ],
+              const SizedBox(height: 5),
+              Text(
+                text,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.normal,
+                  color: isSelected ? kPrimaryColor : Colors.grey,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
