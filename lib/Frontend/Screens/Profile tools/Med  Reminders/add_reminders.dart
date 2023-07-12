@@ -128,7 +128,7 @@ class AddReminder extends StatelessWidget {
                       const Text(
                         'Time',
                         style: TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 16.0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),

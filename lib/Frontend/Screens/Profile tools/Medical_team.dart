@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../buttons/Transparent_button.dart';
 import '../../constants/constants.dart';
+import '../Doctor_Screen.dart';
 
 class MedicalTeam extends StatefulWidget {
   const MedicalTeam({super.key});
@@ -19,7 +20,7 @@ class _MedicalTeamState extends State<MedicalTeam> {
           backgroundColor: Colors.transparent,
           elevation: 0, // Removes the shadow
           title: const Text(
-            'Medication Reminders',
+            'Medication Team',
             style: TextStyle(color: Colors.black87),
           ),
           leading: IconButton(
@@ -60,6 +61,10 @@ class _MedicalTeamState extends State<MedicalTeam> {
                 child: TransparentButton(
                   text: 'Add Medical Team',
                   onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const DoctorScreen()));
                     // Action to perform when the button is pressed
                     print('Button pressed!');
                   },

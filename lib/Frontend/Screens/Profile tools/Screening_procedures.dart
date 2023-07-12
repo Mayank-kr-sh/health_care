@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../buttons/Transparent_button.dart';
 import '../../constants/constants.dart';
+import '../Auth/Create_profile.dart';
 
 class Procedures extends StatefulWidget {
   const Procedures({super.key});
@@ -19,7 +20,7 @@ class _ProceduresState extends State<Procedures> {
           backgroundColor: Colors.transparent,
           elevation: 0, // Removes the shadow
           title: const Text(
-            'Medication Reminders',
+            'Screening & Procedures',
             style: TextStyle(color: Colors.black87),
           ),
           leading: IconButton(
@@ -60,8 +61,10 @@ class _ProceduresState extends State<Procedures> {
                 child: TransparentButton(
                   text: 'Register',
                   onPressed: () {
-                    // Action to perform when the button is pressed
-                    print('Button pressed!');
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CreateProfile()));
                   },
                 ),
               ),
