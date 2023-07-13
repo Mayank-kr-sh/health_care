@@ -44,6 +44,8 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
   intl: ^0.18.1
   dotted_border: ^2.0.0+3
+  share_plus: ^7.0.2
+  url_launcher: ^6.1.12
 
 dev_dependencies:
   flutter_test:

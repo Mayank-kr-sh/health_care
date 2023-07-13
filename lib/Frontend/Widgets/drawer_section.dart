@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:health_care/Frontend/constants/constants.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../Screens/Pills Id/pills_id.dart';
 import '../Screens/newsletter.dart';
 import '../Screens/notification.dart';
+import '../Screens/privacy.dart';
 
 class DrawerSection extends StatelessWidget {
+  final String appLink =
+      'https://your_app_link'; // app linke which i get from playstore
   const DrawerSection({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
@@ -139,6 +143,8 @@ class DrawerSection extends StatelessWidget {
             ),
             onTap: () {
               // Handle feedback tap
+              String feedbackMessage = 'Enter your feedback message here';
+              Share.share(feedbackMessage);
             },
           ),
           ListTile(
@@ -151,7 +157,12 @@ class DrawerSection extends StatelessWidget {
               style: TextStyle(fontSize: titleFontSize),
             ),
             onTap: () {
-              // Handle privacy & legal tap
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const PrivacyLegalScreen(),
+                ),
+              );
             },
           ),
           ListTile(
@@ -165,6 +176,7 @@ class DrawerSection extends StatelessWidget {
             ),
             onTap: () {
               // Handle rate and review tap
+              _launchPlayStore();
             },
           ),
           ListTile(
@@ -178,6 +190,7 @@ class DrawerSection extends StatelessWidget {
             ),
             onTap: () {
               // Handle tell friends tap
+              Share.share(appLink);
             },
           ),
           ListTile(
@@ -196,5 +209,18 @@ class DrawerSection extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+void _launchPlayStore() async {
+  const String packageName =
+      'your_package_name'; // Replace with your app's package name
+  final Uri playStoreUri =
+      Uri.parse('https://play.google.com/store/apps/details?id=$packageName');
+
+  if (await canLaunch(playStoreUri.toString())) {
+    await launch(playStoreUri.toString());
+  } else {
+    throw 'Could not launch Play Store';
   }
 }
