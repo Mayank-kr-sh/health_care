@@ -126,7 +126,7 @@ class _NewsLetterState extends State<NewsLetter> {
                         textAlign: TextAlign.center,
                       ),
                       Text(
-                        'Term and Condition & privicy ',
+                        'Term and Condition',
                         style: TextStyle(fontSize: 12, color: Colors.blue),
                         textAlign: TextAlign.center,
                       )
@@ -137,7 +137,7 @@ class _NewsLetterState extends State<NewsLetter> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Policy ',
+                      '& privicy Policy ',
                       style: TextStyle(fontSize: 12, color: Colors.blue),
                       textAlign: TextAlign.center,
                     ),
