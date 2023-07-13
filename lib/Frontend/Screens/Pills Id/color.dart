@@ -48,7 +48,7 @@ class _ShapeScreenState extends State<ShapeScreen> {
         color: Colors.white,
         child: Padding(
           padding: const EdgeInsets.symmetric(
-            horizontal: 15,
+            horizontal: 10,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,12 +64,13 @@ class _ShapeScreenState extends State<ShapeScreen> {
                   textAlign: TextAlign.center,
                 ),
               ),
-              const SizedBox(height: 4),
+              const SizedBox(height: 5),
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 GridView.count(
                   shrinkWrap: true,
                   crossAxisCount: 3,
-                  childAspectRatio: 1.6,
+                  childAspectRatio: 1.4,
+                  mainAxisSpacing: 10,
                   children: List.generate(svgList.length, (index) {
                     final img = svgList[index];
                     final shapeName = shapeList[index];

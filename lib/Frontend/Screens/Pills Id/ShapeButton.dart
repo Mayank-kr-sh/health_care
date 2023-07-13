@@ -46,7 +46,7 @@ class ShapeButton extends StatelessWidget {
               Text(
                 text,
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 15,
                   fontWeight: FontWeight.normal,
                   color: isSelected ? kPrimaryColor : Colors.grey,
                 ),
