@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/Frontend/Widgets/location.dart';
-import 'package:health_care/Frontend/Widgets/search.dart';
+import 'package:health_care/Frontend/Screens/Pills%20Id/search.dart';
 import 'package:health_care/Frontend/buttons/Transparent_button.dart';
 
 class DoctorScreen extends StatelessWidget {

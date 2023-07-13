@@ -105,7 +105,7 @@ InputDecoration customInputDecoration = InputDecoration(
         color: Colors.grey.shade400,
       ),
     ),
-    focusedBorder: OutlineInputBorder(
+    focusedBorder: const OutlineInputBorder(
       borderSide: BorderSide(
         color: kPrimaryColor,
       ),
@@ -116,3 +116,75 @@ InputDecoration customInputDecoration = InputDecoration(
       vertical: 16.0,
       horizontal: 16.0,
     ));
+
+List<String> shapeList = [
+  'Round',
+  'Oblong',
+  '3-sided',
+  'Square',
+  'Rectangle',
+  'Diamond',
+  '5-sided',
+  '6-sided',
+  '7-sided',
+  '8-sided',
+  'Other',
+];
+
+List<String> svgList = [
+  'assets/icons/oval.svg',
+  'assets/icons/roundedrectangle.svg',
+  'assets/icons/triangle.svg',
+  'assets/icons/square.svg',
+  'assets/icons/rectangle.svg',
+  'assets/icons/diamond.svg',
+  'assets/icons/pentagon.svg',
+  'assets/icons/polygon.svg',
+  'assets/icons/heptagon.svg',
+  'assets/icons/octagon.svg',
+  'assets/icons/Questionmark.svg',
+];
+
+List<Color> shapeColors = [
+  Colors.white,
+  const Color.fromARGB(255, 235, 212, 156),
+  Colors.grey,
+  Colors.black,
+  const Color.fromARGB(255, 198, 145, 12),
+  Colors.brown,
+  Colors.red,
+  Colors.pink,
+  Colors.orange,
+  const Color.fromARGB(255, 210, 168, 62),
+  Colors.yellow,
+  Colors.green,
+  const Color.fromARGB(255, 30, 10, 209),
+  Colors.purple,
+  Colors.teal,
+  Colors.cyanAccent,
+  Colors.indigo,
+  const Color.fromARGB(221, 82, 82, 82)
+
+  // Add more colors here
+];
+
+List<String> colorList = [
+  'White',
+  'Off White',
+  'Grey',
+  'Black',
+  'Tan',
+  'Brown',
+  'Red',
+  'Pink',
+  'Orange',
+  'Peach',
+  'Yellow',
+  'Green',
+  'Blue',
+  'Purple',
+  'Teal',
+  'Turquois',
+  'Indigo',
+  'Other',
+];

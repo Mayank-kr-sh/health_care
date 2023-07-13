@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:health_care/Frontend/Screens/Pills%20Id/color.dart';
-import 'package:health_care/Frontend/Screens/Pills%20Id/shapes.dart';
+import 'package:health_care/Frontend/Screens/Pills%20Id/Shape.dart';
+import 'package:health_care/Frontend/Screens/Pills%20Id/Color.dart';
 import 'package:health_care/Frontend/constants/constants.dart';
+
+import 'search.dart';
 
 class PillIdentifierPage extends StatefulWidget {
   const PillIdentifierPage({Key? key}) : super(key: key);
@@ -16,6 +18,8 @@ class _PillIdentifierPageState extends State<PillIdentifierPage> {
   late PageController _pageController;
   String _selectedShape = '';
   Color? _selectedColor;
+  TextEditingController _searchController = TextEditingController();
+  int _resultCount = 0;
 
   @override
   void initState() {
@@ -26,6 +30,7 @@ class _PillIdentifierPageState extends State<PillIdentifierPage> {
   @override
   void dispose() {
     _pageController.dispose();
+    _searchController.dispose();
     super.dispose();
   }
 
@@ -41,10 +46,60 @@ class _PillIdentifierPageState extends State<PillIdentifierPage> {
     });
   }
 
-  void _handlColorSelected(Color selectedColor) {
+  void _handleColorSelected(Color selectedColor) {
     setState(() {
       _selectedColor = selectedColor;
     });
+  }
+
+  void _clearSelections() {
+    setState(() {
+      _selectedShape = '';
+      _selectedColor = null;
+      _searchController.clear();
+      _resultCount = 0;
+    });
+  }
+
+  void _navigateToSearchPage() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const SearchScreen(),
+      ),
+    );
+  }
+
+  void _showResults() {
+    if (_selectedShape.isNotEmpty && _selectedColor != null) {
+      // Perform your logic to display results based on selected shape and color
+      // For now, let's just show a dummy result count
+      setState(() {
+        _resultCount = 10; // Update with your actual result count
+      });
+    } else {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text('Error'),
+            content: const Text('Please select a shape and a color.'),
+            actions: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: kPrimaryColor,
+                  padding: const EdgeInsets.all(20.0),
+                ),
+                child: const Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+    }
   }
 
   @override
@@ -67,12 +122,10 @@ class _PillIdentifierPageState extends State<PillIdentifierPage> {
         ),
         actions: [
           TextButton(
-            onPressed: () {
-              // Clear action
-            },
+            onPressed: _clearSelections,
             child: const Text(
               "Clear",
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: kPrimaryColor),
             ),
           ),
         ],
@@ -85,43 +138,46 @@ class _PillIdentifierPageState extends State<PillIdentifierPage> {
             child: Row(
               children: [
                 Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(
-                        Icons.search,
-                        color: FocusManager.instance.primaryFocus?.hasFocus ??
-                                false
-                            ? kPrimaryColor
-                            : Colors.grey.shade400,
-                      ),
-                      labelText: 'Search',
-                      labelStyle: TextStyle(
-                        color: Colors.grey[700],
-                        fontSize: 16.0,
-                      ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
+                  child: GestureDetector(
+                    onTap: _navigateToSearchPage,
+                    child: TextField(
+                      controller: _searchController,
+                      decoration: InputDecoration(
+                        prefixIcon: Icon(
+                          Icons.search,
                           color: FocusManager.instance.primaryFocus?.hasFocus ??
                                   false
                               ? kPrimaryColor
                               : Colors.grey.shade400,
                         ),
-                      ),
-                      focusedBorder: const OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: kPrimaryColor,
+                        labelText: 'Search',
+                        labelStyle: TextStyle(
+                          color: Colors.grey[700],
+                          fontSize: 16.0,
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color:
+                                FocusManager.instance.primaryFocus?.hasFocus ??
+                                        false
+                                    ? kPrimaryColor
+                                    : Colors.grey.shade400,
+                          ),
+                        ),
+                        focusedBorder: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: kPrimaryColor,
+                          ),
+                        ),
+                        filled: true,
+                        fillColor: Colors.grey[200],
+                        contentPadding: const EdgeInsets.symmetric(
+                          vertical: 16.0,
+                          horizontal: 16.0,
                         ),
                       ),
-                      filled: true,
-                      fillColor: Colors.grey[200],
-                      contentPadding: const EdgeInsets.symmetric(
-                        vertical: 16.0,
-                        horizontal: 16.0,
-                      ),
+                      onTap: _navigateToSearchPage,
                     ),
-                    onTap: () {
-                      // Open search page
-                    },
                   ),
                 ),
               ],
@@ -132,9 +188,10 @@ class _PillIdentifierPageState extends State<PillIdentifierPage> {
               color: Colors.grey[200],
               boxShadow: const [
                 BoxShadow(
-                    color: Colors.black,
-                    blurRadius: 2.0,
-                    blurStyle: BlurStyle.outer),
+                  color: Colors.black,
+                  blurRadius: 2.0,
+                  blurStyle: BlurStyle.outer,
+                ),
               ],
             ),
             child: Row(
@@ -217,19 +274,62 @@ class _PillIdentifierPageState extends State<PillIdentifierPage> {
             ),
           ),
           Expanded(
-            child: PageView(
-              controller: _pageController,
-              onPageChanged: _selectScreen,
-              children: [
-                ShapeScreen(
-                  onShapeSelected: _handleShapeSelected,
-                ),
-                ColorScreen(
-                  onColorSelected: _handlColorSelected,
-                ),
-              ],
+            child: Container(
+              color: Colors.white,
+              child: PageView(
+                controller: _pageController,
+                onPageChanged: _selectScreen,
+                children: [
+                  ShapeScreen(
+                    onShapeSelected: _handleShapeSelected,
+                  ),
+                  ColorScreen(
+                    onColorSelected: _handleColorSelected,
+                  ),
+                ],
+              ),
             ),
           ),
+          Container(
+            color: Colors.white,
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: ElevatedButton(
+                onPressed: _showResults,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: kPrimaryColor,
+                  padding: const EdgeInsets.all(18.0),
+                ),
+                child: const SizedBox(
+                  width: double.infinity,
+                  child: Text(
+                    'Show Result',
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          if (_resultCount > 0)
+            Container(
+              color: Colors.white,
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Center(
+                child: Text(
+                  'Showing $_resultCount results',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.grey[700],
+                  ),
+                ),
+              ),
+            ),
         ],
       ),
     );

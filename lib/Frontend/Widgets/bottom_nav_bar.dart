@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/Frontend/constants/constants.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
   final List<Widget> screens;
@@ -58,6 +59,7 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
             label: 'Profile',
           ),
         ],
+        selectedItemColor: kPrimaryColor,
       ),
     );
   }

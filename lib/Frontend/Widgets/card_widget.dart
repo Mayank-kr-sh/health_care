@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/Frontend/constants/constants.dart';
 
 class CardWidget extends StatelessWidget {
   final String title;
@@ -37,7 +38,7 @@ class CardWidget extends StatelessWidget {
                   Icon(
                     iconData,
                     size: cardWidth * 0.13,
-                    color: Colors.blue, // Adjust the icon size as needed
+                    color: kPrimaryColor, // Adjust the icon size as needed
                   ),
                   const SizedBox(width: 12.0),
                   Text(

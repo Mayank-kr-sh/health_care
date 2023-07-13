@@ -67,8 +67,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   margin: const EdgeInsets.symmetric(horizontal: 3),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color:
-                          currIndex == entry.key ? Colors.blue : Colors.white),
+                      color: currIndex == entry.key
+                          ? kPrimaryColor
+                          : Colors.white),
                 ),
               );
             }).toList(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/Frontend/constants/constants.dart';
 
 class AppInfoDialog extends StatelessWidget {
   final VoidCallback onClose;
@@ -50,7 +51,10 @@ class AppInfoDialog extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 10, right: 10),
                     child: TextButton(
                       onPressed: onClose,
-                      child: const Text('OK'),
+                      child: const Text(
+                        'OK',
+                        style: TextStyle(color: kPrimaryColor),
+                      ),
                     ),
                   ),
                 ],
