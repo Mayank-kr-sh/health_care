@@ -20,7 +20,7 @@ class DrawerSection extends StatelessWidget {
 
     final iconSize = screenSize.width * 0.06; // Adjust the percentage as needed
     final titleFontSize =
-        15.0 * textScaleFactor; // Adjust the base font size as needed
+        16.0 * textScaleFactor; // Adjust the base font size as needed
 
     return Drawer(
       child: ListView(
@@ -63,7 +63,7 @@ class DrawerSection extends StatelessWidget {
               child: SvgPicture.asset(
                 'assets/icons/drugs.svg',
                 width: iconSize,
-                color: kPrimaryColor,
+                color: const Color.fromARGB(255, 131, 130, 130),
               ),
             ),
             title: Text(
@@ -82,7 +82,7 @@ class DrawerSection extends StatelessWidget {
           ListTile(
             leading: Padding(
               padding: const EdgeInsets.only(left: 4.5),
-              child: Icon(Icons.mic, size: iconSize),
+              child: Icon(Icons.mic_none_outlined, size: iconSize),
             ),
             title: Text(
               'Podcast',
@@ -96,7 +96,7 @@ class DrawerSection extends StatelessWidget {
           ListTile(
             leading: Padding(
               padding: const EdgeInsets.only(left: 4.5),
-              child: Icon(Icons.notifications, size: iconSize),
+              child: Icon(Icons.notifications_none, size: iconSize),
             ),
             title: Text(
               'Notifications',
@@ -115,7 +115,7 @@ class DrawerSection extends StatelessWidget {
           ListTile(
             leading: Padding(
               padding: const EdgeInsets.only(left: 4.5),
-              child: Icon(Icons.mail, size: iconSize),
+              child: Icon(Icons.mail_outline, size: iconSize),
             ),
             title: Text(
               'Newsletter',
@@ -135,7 +135,7 @@ class DrawerSection extends StatelessWidget {
           ListTile(
             leading: Padding(
               padding: const EdgeInsets.only(left: 4.5),
-              child: Icon(Icons.feedback, size: iconSize),
+              child: Icon(Icons.feedback_outlined, size: iconSize),
             ),
             title: Text(
               'Feedback',
@@ -150,7 +150,7 @@ class DrawerSection extends StatelessWidget {
           ListTile(
             leading: Padding(
               padding: const EdgeInsets.only(left: 4.5),
-              child: Icon(Icons.privacy_tip, size: iconSize),
+              child: Icon(Icons.privacy_tip_outlined, size: iconSize),
             ),
             title: Text(
               'Privacy & Legal',
@@ -168,7 +168,7 @@ class DrawerSection extends StatelessWidget {
           ListTile(
             leading: Padding(
               padding: const EdgeInsets.only(left: 4.5),
-              child: Icon(Icons.star, size: iconSize),
+              child: Icon(Icons.star_border, size: iconSize),
             ),
             title: Text(
               'Rate and Review',

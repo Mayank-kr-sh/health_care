@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:health_care/Frontend/Screens/profile/Profile_Screen.dart';
+import 'package:health_care/Frontend/Screens/symptom_check_page.dart';
 import 'package:health_care/Frontend/Widgets/card_widget.dart';
 import 'package:health_care/Frontend/Widgets/drawer_section.dart';
 import 'package:health_care/Frontend/Widgets/news_card.dart';
@@ -90,7 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const ProfileScreen(),
+                builder: (context) => const SymptomCheckPage(),
               ),
             );
           },

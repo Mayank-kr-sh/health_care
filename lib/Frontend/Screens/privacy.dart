@@ -30,14 +30,14 @@ class PrivacyLegalScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailsScreen('Text 1'),
+                  builder: (context) => DetailsScreen('Terms Of Use'),
                 ),
               );
             },
             child: const Padding(
               padding: EdgeInsets.all(16.0),
               child: Text(
-                'Text 1',
+                'Terms Of Use',
                 style: TextStyle(fontSize: 18),
               ),
             ),
@@ -47,14 +47,14 @@ class PrivacyLegalScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailsScreen('Text 2'),
+                  builder: (context) => DetailsScreen('Privacy Policy'),
                 ),
               );
             },
             child: const Padding(
               padding: EdgeInsets.all(16.0),
               child: Text(
-                'Text 2',
+                'Privacy Policy',
                 style: TextStyle(fontSize: 18),
               ),
             ),
@@ -64,14 +64,14 @@ class PrivacyLegalScreen extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => DetailsScreen('Text 3'),
+                  builder: (context) => DetailsScreen('Delete My Account'),
                 ),
               );
             },
             child: const Padding(
               padding: EdgeInsets.all(16.0),
               child: Text(
-                'Text 3',
+                'Delete My Account',
                 style: TextStyle(fontSize: 18),
               ),
             ),
@@ -93,7 +93,10 @@ class DetailsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: Colors.black,
+          ),
           onPressed: () {
             Navigator.pop(context);
           },
